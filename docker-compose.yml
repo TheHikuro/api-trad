@@ -10,8 +10,10 @@ services:
       - '3000:3000'
     depends_on:
       - mongo
+    env_file:
+      - .env
     environment:
-      MONGO_URI: mongodb://mongo:27017/nest
+      MONGO_URI: ${MONGO_URI}
     volumes:
       - .:/app
       - /app/node_modules
