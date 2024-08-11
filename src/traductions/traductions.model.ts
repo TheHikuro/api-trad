@@ -9,10 +9,13 @@ export class Traductions {
   name: string
 
   @Prop()
-  age: number
+  key: number
 
   @Prop()
-  breed: string
+  lang: string
+
+  @Prop()
+  value: string
 }
 
 export const TraductionsSchema = SchemaFactory.createForClass(Traductions)
