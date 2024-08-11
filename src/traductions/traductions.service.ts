@@ -10,6 +10,26 @@ export class TraductionsService {
   ) {}
 
   async getAllTraductions() {
-    return this.tradModel.find()
+    return await this.tradModel.find()
+  }
+
+  async getTraductionById(org: string, environnement: string, id: string) {
+    return await this.tradModel.findOne({
+      organisation: org,
+      environnement,
+      _id: id
+    })
+  }
+
+  async getTraductionByOrganisation(organisation: string) {
+    return await this.tradModel.find({ organisation })
+  }
+
+  async getTraductionByEnvironment(org: string, environnement: string) {
+    return await this.tradModel.find({ organisation: org, environnement })
+  }
+
+  async createTraduction(traduction: Traductions) {
+    return await this.tradModel.create(traduction)
   }
 }
