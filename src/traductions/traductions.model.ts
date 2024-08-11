@@ -5,17 +5,14 @@ export type TraductionsDocument = HydratedDocument<Traductions>
 
 @Schema()
 export class Traductions {
-  @Prop()
+  @Prop({ type: String })
   name: string
 
-  @Prop()
+  @Prop({ type: Number })
   key: number
 
-  @Prop()
-  lang: string
-
-  @Prop()
-  value: string
+  @Prop({ type: Map, of: String })
+  value: { [lang: string]: string }
 }
 
 export const TraductionsSchema = SchemaFactory.createForClass(Traductions)

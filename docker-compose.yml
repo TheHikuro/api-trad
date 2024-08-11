@@ -17,6 +17,7 @@ services:
     volumes:
       - .:/app
       - /app/node_modules
+    command: sh -c "pnpm install && pnpm run start:dev"
 
   mongo:
     image: mongo:7.0
